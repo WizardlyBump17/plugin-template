@@ -1,0 +1,5 @@
+name: '${name}'
+main: com.wizardlybump17.plugintemplate.PluginTemplate
+version: '${version}'
+api-version: '1.20'
+author: WizardlyBump17

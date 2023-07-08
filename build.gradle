@@ -1,0 +1,33 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'io.papermc.paperweight.userdev' version '1.5.5' apply false
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    group = 'com.wizardlybump17.plugin-template'
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    tasks {
+        compileJava {
+            options.encoding = 'UTF-8'
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'io.papermc.paperweight.userdev'
+
+    tasks {
+        assemble {
+            dependsOn reobfJar
+        }
+    }
+}

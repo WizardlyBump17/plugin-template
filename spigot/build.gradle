@@ -1,0 +1,22 @@
+dependencies {
+    compileOnly(
+            'org.projectlombok:lombok:1.18.24',
+            'org.jetbrains:annotations:23.1.0',
+    )
+    paperweightDevelopmentBundle('io.papermc.paper:dev-bundle:1.20.1-R0.1-20230706.021158-48')
+    annotationProcessor('org.projectlombok:lombok:1.18.24')
+    implementation(project(':api'))
+}
+
+reobfJar {
+    outputJar = layout.buildDirectory.file('libs/' + rootProject.name + '-' + project.version + '.jar')
+}
+
+processResources {
+    filesMatching('**/plugin.yml') {
+        expand(
+                'version': project.version,
+                'name': rootProject.name
+        )
+    }
+}
