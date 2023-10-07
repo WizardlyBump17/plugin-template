@@ -10,6 +10,9 @@ allprojects {
     group = 'com.wizardlybump17.plugin-template'
     version = '1.0.0'
 
+    targetCompatibility = '18'
+    sourceCompatibility = '18'
+
     repositories {
         mavenCentral()
         mavenLocal()
